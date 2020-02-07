@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ChineseNewYear
 {
-    class Mask
+    sealed class Mask
     {
         private int protectionInterest = 50;
         private int protectionTimeHour = 4;

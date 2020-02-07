@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ChineseNewYear
 {
-    class CoronaVirus : Virus
+    sealed class CoronaVirus : Virus
     {
 
     }
