@@ -6,6 +6,6 @@ namespace ChineseNewYear
 {
     sealed class CoronaVirus : Virus
     {
-
+        
     }
 }

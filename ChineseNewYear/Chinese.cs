@@ -6,7 +6,6 @@ namespace ChineseNewYear
 {
     sealed class Chinese
     {
-        private int eyeWidth;
         private int percentageOfImmunity;
         private bool isDead;
         private bool isinFected;
@@ -14,11 +13,14 @@ namespace ChineseNewYear
 
         public Chinese(int percentageOfImmunity = 70,bool isMaskDressed = false,bool isDead = false,bool isInFected = false)
         {
-            this.percentageOfImmunity = percentageOfImmunity;
+            
             this.isDead = isDead;
             this.isinFected = isInFected;
             this.isMaskDressed = isMaskDressed;
+            SetPercentageOfImmunity = percentageOfImmunity;
         }
+
+
 
         public int SetPercentageOfImmunity
         {
@@ -36,6 +38,8 @@ namespace ChineseNewYear
                 }
             }
         }
+
+
 
         public override string ToString()
         {
