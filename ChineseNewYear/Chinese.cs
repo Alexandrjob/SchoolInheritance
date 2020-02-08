@@ -10,20 +10,25 @@ namespace ChineseNewYear
 
         private static Immunity immunity = new Immunity();
 
-        public Chinese(int percentageOfImmunity = 70,bool isInFected = false,string VirusName = null, bool isDead = false)
+        public Chinese(int percentageOfImmunity = 70,bool isInFected = false, string VirusName = null, bool isDead = false)
         {
             this.isDead = isDead;
             immunity.SetVirusName = VirusName;
             immunity.SetIsInFected = isInFected;
             immunity.SetPercentageOfImmunity = percentageOfImmunity;
         }
+
+        public Immunity GetImmunity { get => immunity;  }
+
         public bool SetIsDead
         {
             get { return isDead; }
             set { isDead = value; }
         }
-        public void DefenseImmunity(int damage)
+
+        public void DefenseImmunity(int damage, string VirusName)
         {
+            immunity.SetVirusName = VirusName;
             immunity.Defence(damage, this);
         }
 

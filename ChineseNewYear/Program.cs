@@ -19,7 +19,6 @@ namespace ChineseNewYear
         {
             Program program = new Program();
 
-            //chineseMan = new Chinese(percentageOfImmunity, false);
             percentageOfImmunity = random.Next(minPercentageOfImmunity, maxPercentageOfImmunity);
             chineseMan = new Chinese(percentageOfImmunity);
 
@@ -40,7 +39,7 @@ namespace ChineseNewYear
         {
             
             
-            if(GenerateVirus() == 1)
+            if(GenerateVirus() == 1 | chineseMan.GetImmunity.SetIsInFected)
                 virus.Infect(chineseMan);
             else coronaVirus.Infect(chineseMan);
 
@@ -49,7 +48,8 @@ namespace ChineseNewYear
 
         private static int GenerateVirus()
         {
-            return random.Next(1, 2);
+            int s = random.Next(1, 3);
+            return s;
         }
     }
 }

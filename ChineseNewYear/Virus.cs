@@ -10,7 +10,7 @@ namespace ChineseNewYear
 
         public virtual void Infect(Chinese chinese)
         {
-            chinese.DefenseImmunity(damage);
+            chinese.DefenseImmunity(damage, "Virus");
         }
 
     }

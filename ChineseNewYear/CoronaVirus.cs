@@ -11,7 +11,7 @@ namespace ChineseNewYear
         public override void Infect(Chinese chinese)
         {
             
-            chinese.DefenseImmunity(damage);
+            chinese.DefenseImmunity(damage,  "CoronaVirus");
         }
     }
 }

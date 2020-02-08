@@ -6,8 +6,8 @@ namespace ChineseNewYear
 {
     class Immunity
     {
-        public bool isinFected;
-        public string VirusName;
+        private bool isinFected;
+        private string VirusName;
         private int percentageOfImmunity;
         private readonly int extaDamage = 2;
         
@@ -22,7 +22,7 @@ namespace ChineseNewYear
                 percentageOfImmunity = 0;
                 chinese.SetIsDead = true;
             }
-            else
+            else if (percentageOfImmunity <= 40)
             {
                 isinFected = true;
             }

@@ -3,29 +3,36 @@
   <Class Name="ChineseNewYear.Virus" Collapsed="true">
     <Position X="9.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAQAAAAAAACAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAgAAAAAACAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Virus.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ChineseNewYear.Program" Collapsed="true">
-    <Position X="6.25" Y="2.75" Width="1.5" />
+    <Position X="6.25" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAEAAAAAAAAAAEAAAAAABAAAAAAQABAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAEAAAAAAAAAAEAAABEARAAAEAAQAhAAAAAA=</HashCode>
       <FileName>Program.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ChineseNewYear.CoronaVirus" Collapsed="true">
     <Position X="9.25" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAgAAAAAACAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>CoronaVirus.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ChineseNewYear.Chinese" Collapsed="true">
-    <Position X="9.25" Y="3.5" Width="1.5" />
+    <Position X="7.75" Y="3.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>gAAAAAAAAAAAAAAEAAAAAAAAABAQAAAAAAACAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAIEAAEAAEAAAAAABAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Chinese.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ChineseNewYear.Immunity" Collapsed="true">
+    <Position X="9.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAgAAAAAAAAAAAwAAiAAAAAAQAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>Immunity.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="8.92" />
