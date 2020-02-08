@@ -6,16 +6,11 @@ namespace ChineseNewYear
 {
     class Virus
     {
-        private int infectionTimeDay;
+        private int damage = 2;
 
-        public Virus(int infectionTime = 10)
+        public virtual void Infect(Chinese chinese)
         {
-            infectionTimeDay = infectionTime;
-        }
-
-        protected void infection()
-        {
-
+            chinese.DefenseImmunity(damage);
         }
 
     }

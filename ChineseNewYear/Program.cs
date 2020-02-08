@@ -5,25 +5,30 @@ namespace ChineseNewYear
 {
     class Program
     {
-        private object[] Population = new object[100];
+        private static readonly int minPercentageOfImmunity = 0;
+        private static readonly int maxPercentageOfImmunity = 100;
+        private static int percentageOfImmunity;
+
         private static Random random = new Random();
+        private static Chinese chineseMan;
+        private static CoronaVirus coronaVirus = new CoronaVirus();
+        private static Virus virus = new Virus();
+
 
         public static void Main(string[] args)
         {
-            //Это экзэмпляр класса Китайца
-            Chinese chineseMan = new Chinese(random.Next(0, 100), true, false, false);
-            // Вот он
-            chineseMan
-            
-            Console.WriteLine(chineseMan);
+            Program program = new Program();
 
-
+            //chineseMan = new Chinese(percentageOfImmunity, false);
+            percentageOfImmunity = random.Next(minPercentageOfImmunity, maxPercentageOfImmunity);
+            chineseMan = new Chinese(percentageOfImmunity);
 
             using (Timer timer = new Timer())
-            {
+            {   
                 
-                timer.Interval = 3000;
-                timer.Elapsed += LifeCycle;
+            
+                timer.Interval = 800;
+                timer.Elapsed += program.LifeCycle;
                 timer.Start();
                 //Ставим основной поток на ожидание, т.к. таймер исполняется в 
                 //отдельном потоке и не препятствует завершению основного потока.
@@ -31,11 +36,20 @@ namespace ChineseNewYear
             }
         }
         
-        private static void LifeCycle(object source, ElapsedEventArgs e)
+        private void LifeCycle(object source, ElapsedEventArgs e)
         {
-            Chinese chineseMan = new Chinese(random.Next(0,100), true, false, false);
             
+            
+            if(GenerateVirus() == 1)
+                virus.Infect(chineseMan);
+            else coronaVirus.Infect(chineseMan);
+
             Console.WriteLine(chineseMan);
+        }
+
+        private static int GenerateVirus()
+        {
+            return random.Next(1, 2);
         }
     }
 }
