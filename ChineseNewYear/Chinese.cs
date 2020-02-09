@@ -6,39 +6,33 @@ namespace ChineseNewYear
 {
     sealed class Chinese
     {
-        private bool isDead;
+        public Immunity Immunity { get; private set; }
+        public bool IsDead { get; private set; }
 
-        private static Immunity immunity = new Immunity();
-
-        public Chinese(int percentageOfImmunity = 70,bool isInFected = false, string VirusName = null, bool isDead = false)
+        public Chinese(int percentageOfImmunity = 70,bool isInFected = false, Virus virus = null, bool isDead = false)
         {
-            this.isDead = isDead;
-            immunity.SetVirusName = VirusName;
-            immunity.SetIsInFected = isInFected;
-            immunity.SetPercentageOfImmunity = percentageOfImmunity;
+            Immunity = new Immunity(percentageOfImmunity, virus, isInFected);
+            IsDead = isDead;
         }
 
-        public Immunity GetImmunity { get => immunity;  }
-
-        public bool SetIsDead
+        public void KillTheChinese()
         {
-            get { return isDead; }
-            set { isDead = value; }
+            IsDead = true;
         }
 
-        public void DefenseImmunity(int damage, string VirusName)
+        public void DefenseImmunity(int damage, Virus virus)
         {
-            immunity.SetVirusName = VirusName;
-            immunity.Defence(damage, this);
+            Immunity.Defence(damage, this, virus);
+            Console.WriteLine(this.ToString(virus));
         }
 
-        public override string ToString()
+        public string ToString(Virus virus)
         {
-            string chineseCondition;
-            chineseCondition = string.Format("[ Immunity: {0}%; isInfected: {1}; Virusname: {2}; isDead: {3} ]",
-                immunity.SetPercentageOfImmunity, immunity.SetIsInFected, immunity.SetVirusName, isDead);
-
-            return chineseCondition;
+            return string.Format("[ Immunity: {0}%; Damage: {1}; isInfected: {2}; AttackVirusName: {3}; isDead: {4} ]",
+                Immunity.PercentageOfImmunity, 
+                Immunity.NameInfactedVirus?.Damage ?? virus.Damage, 
+                Immunity.IsInFected, Immunity.NameInfactedVirus?.VirusName ?? virus.VirusName, 
+                IsDead);
         }
     }
 }

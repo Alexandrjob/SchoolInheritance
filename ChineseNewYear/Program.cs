@@ -1,55 +1,43 @@
 ﻿using System;
-using System.Timers;
+using System.Threading;
 
 namespace ChineseNewYear
 {
     class Program
     {
-        private static readonly int minPercentageOfImmunity = 0;
-        private static readonly int maxPercentageOfImmunity = 100;
-        private static int percentageOfImmunity;
-
         private static Random random = new Random();
-        private static Chinese chineseMan;
         private static CoronaVirus coronaVirus = new CoronaVirus();
         private static Virus virus = new Virus();
 
-
         public static void Main(string[] args)
         {
-            Program program = new Program();
+            int minPercentageOfImmunity = 0;
+            int maxPercentageOfImmunity = 100;
+            int percentageOfImmunity;
 
             percentageOfImmunity = random.Next(minPercentageOfImmunity, maxPercentageOfImmunity);
-            chineseMan = new Chinese(percentageOfImmunity);
-
-            using (Timer timer = new Timer())
-            {   
-                
-            
-                timer.Interval = 800;
-                timer.Elapsed += program.LifeCycle;
-                timer.Start();
-                //Ставим основной поток на ожидание, т.к. таймер исполняется в 
-                //отдельном потоке и не препятствует завершению основного потока.
-                Console.ReadLine();
+            Chinese chineseMan = new Chinese(percentageOfImmunity);
+        
+            while (!chineseMan.IsDead)
+            {
+                LifeCycle(chineseMan);
+                Thread.Sleep(500);
             }
         }
         
-        private void LifeCycle(object source, ElapsedEventArgs e)
+        private static void LifeCycle(Chinese chineseMan)
         {
-            
-            
-            if(GenerateVirus() == 1 | chineseMan.GetImmunity.SetIsInFected)
-                virus.Infect(chineseMan);
-            else coronaVirus.Infect(chineseMan);
-
-            Console.WriteLine(chineseMan);
+            var currentVirus = EvaluateVirus();
+            currentVirus.Attack(chineseMan);
         }
 
-        private static int GenerateVirus()
+        private static Virus EvaluateVirus()
         {
-            int s = random.Next(1, 3);
-            return s;
+            if (random.Next(1, 3) == 1)
+            {
+                return virus;
+            }
+            return coronaVirus;
         }
     }
 }

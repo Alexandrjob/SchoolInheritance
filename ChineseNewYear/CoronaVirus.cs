@@ -6,12 +6,10 @@ namespace ChineseNewYear
 {
     sealed class CoronaVirus : Virus
     {
-        private int damage = 3;
-
-        public override void Infect(Chinese chinese)
+        public CoronaVirus()
         {
-            
-            chinese.DefenseImmunity(damage,  "CoronaVirus");
+            Damage = 3;
+            VirusName = "CoronaVirus";
         }
     }
 }

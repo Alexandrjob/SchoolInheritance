@@ -6,44 +6,61 @@ namespace ChineseNewYear
 {
     class Immunity
     {
-        private bool isinFected;
-        private string VirusName;
-        private int percentageOfImmunity;
         private readonly int extaDamage = 2;
-        
-        public void Defence(int damage, Chinese chinese)
-        {
-            if (isinFected)
-                damage += extaDamage;
+        private int percentageOfImmunity;
 
-            percentageOfImmunity -= damage;
-            if (percentageOfImmunity <= 0 | chinese.SetIsDead)
-            {
-                percentageOfImmunity = 0;
-                chinese.SetIsDead = true;
-            }
-            else if (percentageOfImmunity <= 40)
-            {
-                isinFected = true;
-            }
-        }
-
-        public bool SetIsInFected 
-        {
-            get { return isinFected; }
-            set { isinFected = value; }
-        }
-
-        public int SetPercentageOfImmunity
+        public bool IsInFected { get; set; }
+        public Virus NameInfactedVirus { get; set; }
+        public int PercentageOfImmunity
         {
             get { return percentageOfImmunity; }
-            set { percentageOfImmunity = value; }
+            set
+            {
+                if (value < 0)
+                { 
+                    percentageOfImmunity = 0;
+                    
+                }
+                else percentageOfImmunity = value;
+            }
+        }
+        
+        public Immunity(int percentageOfImmunity, Virus virus, bool isInfected)
+        {
+            PercentageOfImmunity = percentageOfImmunity;
+            NameInfactedVirus = virus;
+            IsInFected = isInfected;
         }
 
-        public string SetVirusName
+        public void DecreaseImmunity(int percent, Chinese chinese)
         {
-            get { return VirusName; }
-            set { VirusName = value; }
+            if (NameInfactedVirus != null)
+            {
+                PercentageOfImmunity -= NameInfactedVirus.Damage;
+            }
+            else
+            {
+                PercentageOfImmunity -= percent;
+            }
+
+            if (PercentageOfImmunity == 0)
+                chinese.KillTheChinese();
+        }
+
+        public void Defence(int damage, Chinese chinese, Virus virus)
+        {
+            int currentDamage = damage;
+
+            if (IsInFected)
+                currentDamage += extaDamage;
+
+            DecreaseImmunity(currentDamage, chinese);
+            
+            if (PercentageOfImmunity <= 40 && NameInfactedVirus == null)
+            {
+                IsInFected = true;
+                NameInfactedVirus = virus;
+            }
         }
     }
 }
