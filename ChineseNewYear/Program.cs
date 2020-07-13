@@ -9,9 +9,9 @@ namespace ChineseNewYear
         private static CoronaVirus coronaVirus = new CoronaVirus();
         private static Virus virus = new Virus();
 
-        public static void Main(string[] args)
+        public static void Main()
         {
-            int minPercentageOfImmunity = 0;
+            int minPercentageOfImmunity = 70;
             int maxPercentageOfImmunity = 100;
             int percentageOfImmunity;
 
