@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace ChineseNewYear
 {
@@ -9,7 +7,7 @@ namespace ChineseNewYear
         public Immunity Immunity { get; private set; }
         public bool IsDead { get; private set; }
 
-        public Chinese(int percentageOfImmunity = 70,bool isInFected = false, Virus virus = null, bool isDead = false)
+        public Chinese(int percentageOfImmunity = 70, bool isInFected = false, Virus virus = null, bool isDead = false)
         {
             Immunity = new Immunity(percentageOfImmunity, virus, isInFected);
             IsDead = isDead;
@@ -29,9 +27,9 @@ namespace ChineseNewYear
         public string ToString(Virus virus)
         {
             return string.Format("[ Immunity: {0}%; Damage: {1}; isInfected: {2}; AttackVirusName: {3}; isDead: {4} ]",
-                Immunity.PercentageOfImmunity, 
-                Immunity.NameInfactedVirus?.Damage ?? virus.Damage, 
-                Immunity.IsInFected, Immunity.NameInfactedVirus?.VirusName ?? virus.VirusName, 
+                Immunity.PercentageOfImmunity,
+                Immunity.NameInfactedVirus?.Damage ?? virus.Damage,
+                Immunity.IsInFected, Immunity.NameInfactedVirus?.VirusName ?? virus.VirusName,
                 IsDead);
         }
     }

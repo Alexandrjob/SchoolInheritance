@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ChineseNewYear
+﻿namespace ChineseNewYear
 {
     class Immunity
     {
@@ -17,14 +13,14 @@ namespace ChineseNewYear
             set
             {
                 if (value < 0)
-                { 
+                {
                     percentageOfImmunity = 0;
-                    
+
                 }
                 else percentageOfImmunity = value;
             }
         }
-        
+
         public Immunity(int percentageOfImmunity, Virus virus, bool isInfected)
         {
             PercentageOfImmunity = percentageOfImmunity;
@@ -55,7 +51,7 @@ namespace ChineseNewYear
                 currentDamage += extaDamage;
 
             DecreaseImmunity(currentDamage, chinese);
-            
+
             if (PercentageOfImmunity <= 40 && NameInfactedVirus == null)
             {
                 IsInFected = true;
